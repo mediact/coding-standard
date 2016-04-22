@@ -1,0 +1,22 @@
+{
+  "name": "mediact/coding-standard",
+  "description": "MediaCT PHP Coding Standard",
+  "type": "phpcs-sniffs",
+  "homepage": "https://bitbucket.org/mediactbv/coding-standard",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "MediaCT",
+      "email": "contact@mediact.nl"
+    }
+  ],
+  "require": {
+    "squizlabs/php_codesniffer": "2.*",
+    "php": ">=5.4.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "MediaCT": "src/MediaCT"
+    }
+  }
+}

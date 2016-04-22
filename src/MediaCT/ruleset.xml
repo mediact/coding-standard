@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright MediaCT. All rights reserved.
+ * https://www.mediact.nl
+ */
+-->
+<ruleset name="PSR2+MediaCT">
+    <description>MediaCT its extension to PSR2.</description>
+
+    <!-- Skip Tests -->
+    <exclude-pattern>*/tests/*</exclude-pattern>
+
+    <!-- Base rules on PSR2 -->
+    <rule ref="PSR2"/>
+
+    <!-- Make sure arrays are sane -->
+    <rule ref="Squiz.Arrays.ArrayDeclaration"/>
+
+    <!-- Make sure PHPdoc is complete -->
+    <rule ref="Squiz.Commenting.FunctionComment" />
+    <rule ref="Squiz.Commenting.FunctionCommentThrowTag" />
+    <rule ref="Squiz.Commenting.VariableComment" />
+
+</ruleset>
