@@ -14,12 +14,40 @@
     <!-- Base rules on PSR2 -->
     <rule ref="PSR2"/>
 
+    <!-- General rules -->
+    <rule ref="Generic">
+        <exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
+        <exclude name="Generic.Commenting.DocComment.ContentAfterOpen" />
+        <exclude name="Generic.Commenting.DocComment.ContentBeforeClose" />
+        <exclude name="Generic.Commenting.DocComment.MissingShort" />
+        <exclude name="Generic.Files.EndFileNewline.NotFound" />
+        <exclude name="Generic.Files.EndFileNoNewline.Found" />
+        <exclude name="Generic.Files.LowercasedFilename.NotFound" />
+        <exclude name="Generic.Formatting.SpaceAfterCast" />
+        <exclude name="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine" />
+        <exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie.BraceOnNewLine" />
+        <exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie.SpaceAfterBracket" />
+        <exclude name="Generic.PHP.ClosingPHPTag.NotFound" />
+        <exclude name="Generic.PHP.UpperCaseConstant.Found" />
+        <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed" />
+        <exclude name="Generic.WhiteSpace.DisallowTabIndent.NonIndentTabsUsed" />
+        <exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsed" />
+    </rule>
+
     <!-- Make sure arrays are sane -->
-    <rule ref="Squiz.Arrays.ArrayDeclaration"/>
+    <rule ref="Squiz.Arrays.ArrayDeclaration">
+        <exclude name="Squiz.Arrays.ArrayDeclaration.ValueNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.NoCommaAfterLast"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.CloseBraceNotAligned"/>
+    </rule>
 
     <!-- Make sure PHPdoc is complete -->
-    <rule ref="Squiz.Commenting.FunctionComment" />
-    <rule ref="Squiz.Commenting.FunctionCommentThrowTag" />
-    <rule ref="Squiz.Commenting.VariableComment" />
+    <rule ref="Squiz.Commenting.FunctionComment">
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
+        <exclude name="Squiz.Commenting.FunctionComment.IncorrectParamVarName"/>
+        <exclude name="Squiz.Commenting.FunctionComment.InvalidReturn"/>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionCommentThrowTag"/>
+    <rule ref="Squiz.Commenting.VariableComment"/>
 
 </ruleset>
