@@ -11,6 +11,13 @@ use PHP_CodeSniffer_Sniff;
 
 class ValidVariableNameSniff implements PHP_CodeSniffer_Sniff
 {
+    protected $allowedNames = [
+        '_GET',
+        '_POST',
+        '_COOKIE',
+        '_REQUEST',
+        '_SESSION'
+    ];
 
     /**
      * Listen to variable name tokens.
@@ -35,7 +42,9 @@ class ValidVariableNameSniff implements PHP_CodeSniffer_Sniff
         $tokens  = $phpcsFile->getTokens();
         $varName = ltrim($tokens[$stackPtr]['content'], '$');
 
-        if (preg_match('/^_/', $varName)) {
+        if (!in_array($varName, $this->allowedNames)
+            && preg_match('/^_/', $varName)
+        ) {
             $phpcsFile->addFixableWarning(
                 'Variable names may not start with an underscore',
                 $stackPtr,
