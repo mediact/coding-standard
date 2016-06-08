@@ -16,6 +16,7 @@ class ValidVariableNameSniff implements PHP_CodeSniffer_Sniff
         '_POST',
         '_COOKIE',
         '_REQUEST',
+        '_SERVER',
         '_SESSION'
     ];
 
