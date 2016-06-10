@@ -11,8 +11,9 @@
     }
   ],
   "require": {
+    "php": "^5.4.0 || ^7.0",
     "squizlabs/php_codesniffer": "2.*",
-    "php": ">=5.4.0"
+    "phpmd/phpmd": "@stable"
   },
   "autoload": {
     "psr-0": {
