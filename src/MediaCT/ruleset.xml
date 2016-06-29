@@ -34,6 +34,7 @@
         <exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsed" />
         <exclude name="Generic.CodeAnalysis.UnusedParameter.Found"/>`
         <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.Found"/>`
+        <exclude name="Generic.CodeAnalysis.UselessOverridingMethod.Found"/>`
     </rule>
 
     <!-- Make sure arrays are sane -->

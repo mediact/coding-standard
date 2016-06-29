@@ -21,5 +21,6 @@
     </rule>
     <rule ref="rulesets/unusedcode.xml">
         <exclude name="UnusedFormalParameter"/>
+        <exclude name="UnusedLocalVariable"/>
     </rule>
 </ruleset>
