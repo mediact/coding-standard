@@ -8,39 +8,11 @@
 <ruleset name="PSR2+MediaCT">
     <description>MediaCT its extension to PSR2.</description>
 
-    <!-- Skip Tests -->
-    <exclude-pattern>*/tests/*</exclude-pattern>
-
     <!-- Base rules on PSR2 -->
     <rule ref="PSR2"/>
 
-    <!-- General rules -->
-    <rule ref="Generic">
-        <exclude name="Generic.Arrays.DisallowShortArraySyntax.Found"/>
-        <exclude name="Generic.Commenting.DocComment.ContentAfterOpen"/>
-        <exclude name="Generic.Commenting.DocComment.ContentBeforeClose"/>
-        <exclude name="Generic.Commenting.DocComment.MissingShort"/>
-        <exclude name="Generic.Files.EndFileNewline.NotFound"/>
-        <exclude name="Generic.Files.EndFileNoNewline.Found"/>
-        <exclude name="Generic.Files.LowercasedFilename.NotFound"/>
-        <exclude name="Generic.Formatting.SpaceAfterCast"/>
-        <exclude name="Generic.Formatting.SpaceAfterNot"/>
-        <exclude name="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
-        <exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie.BraceOnNewLine"/>
-        <exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie.SpaceAfterBracket"/>
-        <exclude name="Generic.NamingConventions.CamelCapsFunctionName.ScopeNotCamelCaps"/>
-        <exclude name="Generic.NamingConventions.CamelCapsFunctionName.NotCamelCaps"/>
-        <exclude name="Generic.PHP.ClosingPHPTag.NotFound"/>
-        <exclude name="Generic.PHP.UpperCaseConstant.Found"/>
-        <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed"/>
-        <exclude name="Generic.WhiteSpace.DisallowTabIndent.NonIndentTabsUsed"/>
-        <exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
-        <exclude name="Generic.CodeAnalysis.UnusedParameter.Found"/>
-        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter.Found"/>
-        <exclude name="Generic.CodeAnalysis.UselessOverridingMethod.Found"/>
-    </rule>
-
-    <!-- Make sure arrays are sane -->
+    <!-- Arrays -->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
     <rule ref="Squiz.Arrays.ArrayDeclaration">
         <exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"/>
         <exclude name="Squiz.Arrays.ArrayDeclaration.KeyNotAligned"/>
@@ -49,7 +21,20 @@
         <exclude name="Squiz.Arrays.ArrayDeclaration.CloseBraceNotAligned"/>
     </rule>
 
-    <!-- Make sure PHPdoc is complete -->
+    <!-- Code analysis -->
+    <rule ref="Generic.CodeAnalysis.EmptyStatement"/>
+    <rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop"/>
+    <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/>
+    <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
+    <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+    <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
+
+    <!-- Commenting -->
+    <rule ref="Generic.Commenting.DocComment">
+        <exclude name="Generic.Commenting.DocComment.ContentAfterOpen"/>
+        <exclude name="Generic.Commenting.DocComment.ContentBeforeClose"/>
+        <exclude name="Generic.Commenting.DocComment.MissingShort"/>
+    </rule>
     <rule ref="Squiz.Commenting.FunctionComment">
         <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
         <exclude name="Squiz.Commenting.FunctionComment.IncorrectParamVarName"/>
@@ -58,4 +43,39 @@
     <rule ref="Squiz.Commenting.FunctionCommentThrowTag"/>
     <rule ref="Squiz.Commenting.VariableComment"/>
 
+    <!-- Files -->
+    <rule ref="Generic.Files.ByteOrderMark"/>
+    <rule ref="Generic.Files.LineEndings"/>
+    <rule ref="Generic.Files.LineLength"/>
+
+    <!-- Formatting -->
+    <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
+    <rule ref="Generic.Formatting.MultipleStatementAlignment"/>
+    <rule ref="Generic.Formatting.NoSpaceAfterCast"/>
+
+    <!-- Functions -->
+    <rule ref="Generic.Functions.CallTimePassByReference"/>
+    <rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
+
+    <!-- Metrics -->
+    <rule ref="Generic.Metrics"/>
+
+    <!-- Naming conventions -->
+    <rule ref="Generic.NamingConventions.CamelCapsFunctionName"/>
+    <rule ref="Generic.NamingConventions.ConstructorName"/>
+    <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+
+    <!-- PHP -->
+    <rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/>
+    <rule ref="Generic.PHP.DeprecatedFunctions"/>
+    <rule ref="Generic.PHP.DisallowShortOpenTag"/>
+    <rule ref="Generic.PHP.ForbiddenFunctions"/>
+    <rule ref="Generic.PHP.LowerCaseConstant"/>
+    <rule ref="Generic.PHP.LowerCaseKeyword"/>
+    <rule ref="Generic.PHP.NoSilencedErrors"/>
+    <rule ref="Generic.PHP.SAPIUsage"/>
+    <rule ref="Generic.PHP.Syntax"/>
+
+    <!-- Whitespace -->
+    <rule ref="Generic.WhiteSpace.ScopeIndent"/>
 </ruleset>
