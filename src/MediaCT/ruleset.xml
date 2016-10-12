@@ -19,6 +19,7 @@
         <exclude name="Squiz.Arrays.ArrayDeclaration.ValueNotAligned"/>
         <exclude name="Squiz.Arrays.ArrayDeclaration.NoCommaAfterLast"/>
         <exclude name="Squiz.Arrays.ArrayDeclaration.CloseBraceNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed"/>
     </rule>
 
     <!-- Code analysis -->
