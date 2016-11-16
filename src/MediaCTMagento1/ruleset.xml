@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright MediaCT. All rights reserved.
+ * https://www.mediact.nl
+ */
+-->
+<ruleset name="PSR2+MediaCT+M1">
+    <description>MediaCT its extension to PSR2 with some exceptions for Magento1.</description>
+
+    <!-- Base rules on MediaCT -->
+    <rule ref="../MediaCT">
+        <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
+        <exclude name="Squiz.Classes.ValidClassName.NotCamelCaps"/>
+        <exclude name="PSR2.Classes.ClassDeclaration.ExtendsLine"/>
+        <exclude name="PSR2.Classes.ClassDeclaration.ImplementsLine"/>
+        <exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/>
+    </rule>
+
+</ruleset>
