@@ -37,15 +37,15 @@ class ReturnTypeSniff implements PHP_CodeSniffer_Sniff
             return;
         }
 
-        $functionStart = $stackPtr;
-        $functionEnd   = $this->findFunctionEndIndex($phpcsFile, $functionStart);
-        $commentEnd    = $this->findCommentEndIndex($phpcsFile, $stackPtr);
-        $commentStart  = $this->findCommentStartIndex($phpcsFile, $commentEnd);
+        $functionStart     = $stackPtr;
+        $functionBodyStart = $this->findFunctionBodyStartIndex($phpcsFile, $functionStart);
+        $commentEnd        = $this->findCommentEndIndex($phpcsFile, $stackPtr);
+        $commentStart      = $this->findCommentStartIndex($phpcsFile, $commentEnd);
 
-        if ($commentStart && $functionEnd) {
+        if ($commentStart && $functionBodyStart) {
             $suggestedReturnTypes = $this->findSuggestedReturnTypes($phpcsFile, $commentStart);
             $filteredReturnTypes  = array_filter($suggestedReturnTypes);
-            $returnType           = $this->findActualReturnType($phpcsFile, $functionStart, $functionEnd);
+            $returnType           = $this->findActualReturnType($phpcsFile, $functionStart, $functionBodyStart);
 
             if (empty($returnType)
                 && count($suggestedReturnTypes) > 1
@@ -100,12 +100,9 @@ class ReturnTypeSniff implements PHP_CodeSniffer_Sniff
      *
      * @return bool|int
      */
-    protected function findFunctionEndIndex(PHP_CodeSniffer_File $phpcsFile, $functionIndex)
+    protected function findFunctionBodyStartIndex(PHP_CodeSniffer_File $phpcsFile, $functionIndex)
     {
-        $token = $phpcsFile->getTokens()[$functionIndex];
-        return isset($token['scope_closer'])
-            ? $token['scope_closer']
-            : $phpcsFile->findNext(T_SEMICOLON, $functionIndex);
+        return $phpcsFile->findNext([T_SEMICOLON, T_OPEN_CURLY_BRACKET], $functionIndex);
     }
 
     /**
@@ -266,20 +263,25 @@ class ReturnTypeSniff implements PHP_CodeSniffer_Sniff
     /**
      * @param PHP_CodeSniffer_File $phpcsFile
      * @param string               $functionStart
-     * @param string               $functionEnd
+     * @param string               $functionBodyStart
      *
      * @return string
      */
-    protected function findActualReturnType(PHP_CodeSniffer_File $phpcsFile, $functionStart, $functionEnd)
+    protected function findActualReturnType(PHP_CodeSniffer_File $phpcsFile, $functionStart, $functionBodyStart)
     {
         $returnTypeIndex = $phpcsFile->findNext(
             T_RETURN_TYPE,
             $functionStart,
-            $functionEnd
+            $functionBodyStart
         );
 
         if (!$returnTypeIndex) {
-            $returnTypeIndex = $this->findFunctionArrayReturnIndex($phpcsFile, $functionStart, $functionEnd);
+            // Sometimes the return tag has been parsed wrong by PHPCS
+            $returnTypeIndex = $this->findFunctionArrayReturnIndex(
+                $phpcsFile,
+                $functionStart,
+                $functionBodyStart
+            );
         }
 
         return $returnTypeIndex
@@ -290,31 +292,25 @@ class ReturnTypeSniff implements PHP_CodeSniffer_Sniff
     /**
      * @param PHP_CodeSniffer_File $phpcsFile
      * @param int                  $functionStart
-     * @param int                  $functionEnd
+     * @param int                  $functionBodyStart
      *
      * @return int|bool
      */
     protected function findFunctionArrayReturnIndex(
         PHP_CodeSniffer_File $phpcsFile,
         $functionStart,
-        $functionEnd
+        $functionBodyStart
     ) {
         $closingIndex = $phpcsFile->findNext(
             T_CLOSE_PARENTHESIS,
             $functionStart,
-            $functionEnd
-        );
-
-        $bodyStart = $phpcsFile->findNext(
-            [T_OPEN_CURLY_BRACKET, T_SEMICOLON],
-            $closingIndex,
-            $functionEnd
+            $functionBodyStart
         );
 
         return $phpcsFile->findNext(
             [T_ARRAY_HINT],
             $closingIndex,
-            $bodyStart
+            $functionBodyStart
         );
     }
 
