@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright MediaCT. All rights reserved.
+ * https://www.mediact.nl
+ */
+-->
+<ruleset name="Mediact/PhpUnit">
+    <description>Coding standard for unit tests.</description>
+
+    <!-- Base rules on MediaCT -->
+    <rule ref="../Common"/>
+</ruleset>
