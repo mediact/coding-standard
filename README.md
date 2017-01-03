@@ -34,8 +34,6 @@ Go to __Settings > Languages & Frameworks > PHP > Code Sniffer__. Choose
 "Local" for the path and fill in the full path to 
 `~/.composer/vendor/squizlabs/php_codesniffer/scripts/phpcs`
 
-![PhpStorm Code Sniffer Settings](./docs/phpstorm-code-sniffer.png)
-
 Then go to __Settings > Editor > Inspections__ and search for PHP Code Sniffer
 Validation. Push the refresh button next to the coding standards dropdown.
 If PHP CodeSniffer has been configure correctly the MediaCT standards will be
