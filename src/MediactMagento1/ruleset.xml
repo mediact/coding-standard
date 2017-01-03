@@ -6,10 +6,10 @@
  */
 -->
 <ruleset name="Mediact/Magento1">
-    <description>MediaCT its extension to PSR2 with some exceptions for Magento1.</description>
+    <description>MediaCT coding standards for Magento1.</description>
 
     <!-- Base rules on MediaCT -->
-    <rule ref="../Common">
+    <rule ref="../MediactCommon">
         <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
         <exclude name="Squiz.Classes.ValidClassName.NotCamelCaps"/>
         <exclude name="PSR2.Classes.ClassDeclaration.ExtendsLine"/>

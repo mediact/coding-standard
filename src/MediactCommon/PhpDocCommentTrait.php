@@ -3,7 +3,7 @@
  * Copyright MediaCT. All rights reserved.
  * https://www.mediact.nl
  */
-namespace Common;
+namespace MediactCommon;
 
 use PHP_CodeSniffer_File;
 use PHP_CodeSniffer_Tokens;

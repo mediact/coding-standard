@@ -17,10 +17,10 @@
   },
   "autoload": {
     "psr-0": {
-      "Common": "src/Common",
-      "Magento1": "src/Magento1",
+      "MediactCommon": "src/MediactCommon",
+      "MediactMagento1": "src/MediactMagento1",
       "MediaCT": "src/MediaCT",
-      "PhpUnit": "src/PhpUnit"
+      "MediactPhpUnit": "src/MediactPhpUnit"
     }
   }
 }

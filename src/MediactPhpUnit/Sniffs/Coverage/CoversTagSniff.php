@@ -3,10 +3,10 @@
  * Copyright MediaCT. All rights reserved.
  * https://www.mediact.nl
  */
-namespace PhpUnit\Sniffs\Coverage;
+namespace MediactPhpUnit\Sniffs\Coverage;
 
-use Common\FunctionTrait;
-use Common\PhpDocCommentTrait;
+use MediactCommon\FunctionTrait;
+use MediactCommon\PhpDocCommentTrait;
 use PHP_CodeSniffer_File;
 use PHP_CodeSniffer_Sniff;
 

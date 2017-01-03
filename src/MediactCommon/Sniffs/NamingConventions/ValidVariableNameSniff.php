@@ -4,7 +4,7 @@
  * https://www.mediact.nl
  */
 
-namespace Common\Sniffs\NamingConventions;
+namespace MediactCommon\Sniffs\NamingConventions;
 
 use PHP_CodeSniffer_File;
 use PHP_CodeSniffer_Sniff;

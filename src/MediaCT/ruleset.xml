@@ -9,7 +9,7 @@
     <description>MediaCT coding standards</description>
 
     <!-- Base rules on PSR2 -->
-    <rule ref="../Common">
+    <rule ref="../MediactCommon">
         <exclude-pattern>app/code/*</exclude-pattern>
         <exclude-pattern>*/app/code/*</exclude-pattern>
         <exclude-pattern>app/design/frontend/*</exclude-pattern>
@@ -18,12 +18,12 @@
         <exclude-pattern>*/tests/*</exclude-pattern>
     </rule>
 
-    <rule ref="../Magento1">
+    <rule ref="../MediactMagento1">
         <include-pattern>app/code/*</include-pattern>
         <include-pattern>*/app/code/*</include-pattern>
     </rule>
 
-    <rule ref="../PhpUnit">
+    <rule ref="../MediactPhpUnit">
         <include-pattern>tests/*</include-pattern>
         <include-pattern>*/tests/*</include-pattern>
     </rule>

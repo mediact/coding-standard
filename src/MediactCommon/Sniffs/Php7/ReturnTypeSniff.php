@@ -3,12 +3,12 @@
  * Copyright MediaCT. All rights reserved.
  * https://www.mediact.nl
  */
-namespace Common\Sniffs\Php7;
+namespace MediactCommon\Sniffs\Php7;
 
-use Common\FunctionTrait;
-use Common\PhpDocCommentTrait;
-use Common\PhpVersionTrait;
-use Common\TypeHintsTrait;
+use MediactCommon\FunctionTrait;
+use MediactCommon\PhpDocCommentTrait;
+use MediactCommon\PhpVersionTrait;
+use MediactCommon\TypeHintsTrait;
 use PHP_CodeSniffer_File;
 use PHP_CodeSniffer_Sniff;
 
