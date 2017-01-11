@@ -16,6 +16,8 @@
         <exclude name="PSR2.Classes.ClassDeclaration.ImplementsLine"/>
         <exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/>
         <exclude name="MediactCommon.Php7.ReturnType.MissingReturnType"/>
+        <exclude name="Squiz.Commenting.FunctionComment.TypeHintMissing"/>
+        <exclude name="PSR2.Methods.MethodDeclaration.Underscore"/>
     </rule>
 
 </ruleset>
