@@ -42,7 +42,9 @@
         <exclude name="Squiz.Commenting.FunctionComment.InvalidReturn"/>
     </rule>
     <rule ref="Squiz.Commenting.FunctionCommentThrowTag"/>
-    <rule ref="Squiz.Commenting.VariableComment"/>
+    <rule ref="Squiz.Commenting.VariableComment">
+        <exclude name="Squiz.Commenting.VariableComment.IncorrectVarType"/>
+    </rule>
 
     <!-- Files -->
     <rule ref="Generic.Files.ByteOrderMark"/>
