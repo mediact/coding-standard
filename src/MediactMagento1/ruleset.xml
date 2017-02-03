@@ -9,15 +9,31 @@
     <description>MediaCT coding standards for Magento1.</description>
 
     <!-- Base rules on MediaCT -->
-    <rule ref="../MediactCommon">
-        <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
-        <exclude name="Squiz.Classes.ValidClassName.NotCamelCaps"/>
-        <exclude name="PSR2.Classes.ClassDeclaration.ExtendsLine"/>
-        <exclude name="PSR2.Classes.ClassDeclaration.ImplementsLine"/>
-        <exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/>
-        <exclude name="MediactCommon.Php7.ReturnType.MissingReturnType"/>
-        <exclude name="Squiz.Commenting.FunctionComment.TypeHintMissing"/>
-        <exclude name="PSR2.Methods.MethodDeclaration.Underscore"/>
-    </rule>
+    <rule ref="../MediactCommon"/>
 
+    <!-- Exclude rules for Magento -->
+    <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
+        <exclude-pattern>app/code/*</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
+        <exclude-pattern>app/code/*</exclude-pattern>
+    </rule>
+    <rule ref="PSR2.Classes.ClassDeclaration.ExtendsLine">
+        <exclude-pattern>app/code/*</exclude-pattern>
+    </rule>
+    <rule ref="PSR2.Classes.ClassDeclaration.ImplementsLine">
+        <exclude-pattern>app/code/*</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing">
+        <exclude-pattern>app/code/*</exclude-pattern>
+    </rule>
+    <rule ref="MediactCommon.Php7.ReturnType.MissingReturnType">
+        <exclude-pattern>app/code/*</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionComment.TypeHintMissing">
+        <exclude-pattern>app/code/*</exclude-pattern>
+    </rule>
+    <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+        <exclude-pattern>app/code/*</exclude-pattern>
+    </rule>
 </ruleset>
