@@ -12,6 +12,7 @@
   ],
   "require": {
     "php": "^5.4.0 || ^7.0",
+    "mediact/coding-standard-phpstorm": "^1.0",
     "squizlabs/php_codesniffer": "2.*",
     "phpmd/phpmd": "@stable"
   },
