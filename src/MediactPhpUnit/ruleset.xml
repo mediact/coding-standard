@@ -10,5 +10,4 @@
 
     <!-- Base rules on MediaCT -->
     <rule ref="../MediactCommon"/>
-    <exclude-pattern>(?&lt;!Test).php</exclude-pattern>
 </ruleset>
