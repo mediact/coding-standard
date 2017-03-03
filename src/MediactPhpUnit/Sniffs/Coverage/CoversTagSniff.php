@@ -51,7 +51,10 @@ class CoversTagSniff implements PHP_CodeSniffer_Sniff
 
         $commentEnd   = $this->findCommentEndIndex($file, $stackPtr);
         $commentStart = $this->findCommentStartIndex($file, $commentEnd);
-        if ($commentStart && $commentEnd) {
+        if ($commentStart
+            && $commentEnd
+            && !$this->hasCoversNothingTag($file, $commentStart)
+        ) {
             $coversTags = $this->getCoversTags($file, $commentStart);
 
             $this->validateCoversTagExists($file, $commentStart, $coversTags);
@@ -137,6 +140,18 @@ class CoversTagSniff implements PHP_CodeSniffer_Sniff
         }
 
         return $tags;
+    }
+
+    /**
+     * @param PHP_CodeSniffer_File $file
+     * @param int                  $commentStart
+     *
+     * @return bool
+     */
+    protected function hasCoversNothingTag(PHP_CodeSniffer_File $file, $commentStart)
+    {
+        return count($this->findCommentTagIndexes($file, $commentStart, '@coversNothing'))
+            > 0;
     }
 
     /**
