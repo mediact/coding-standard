@@ -11,7 +11,7 @@ use PHP_CodeSniffer_Sniff;
 
 class ValidVariableNameSniff implements PHP_CodeSniffer_Sniff
 {
-    protected $allowedNames = [
+    public $allowedNames = [
         '_GET',
         '_POST',
         '_COOKIE',
