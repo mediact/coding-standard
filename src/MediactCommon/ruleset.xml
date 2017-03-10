@@ -58,7 +58,6 @@
     <!-- Formatting -->
     <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
     <rule ref="Generic.Formatting.MultipleStatementAlignment"/>
-    <rule ref="Generic.Formatting.NoSpaceAfterCast"/>
 
     <!-- Functions -->
     <rule ref="Generic.Functions.CallTimePassByReference"/>
