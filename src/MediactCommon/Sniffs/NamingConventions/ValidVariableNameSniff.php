@@ -47,7 +47,7 @@ class ValidVariableNameSniff implements PHP_CodeSniffer_Sniff
         if (!in_array($varName, $this->allowedNames)
             && preg_match('/^_/', $varName)
         ) {
-            $phpcsFile->addFixableWarning(
+            $phpcsFile->addWarning(
                 'Variable names may not start with an underscore',
                 $stackPtr,
                 'IllegalVariableNameUnderscore'
