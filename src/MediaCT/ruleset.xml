@@ -9,6 +9,5 @@
     <description>MediaCT coding standards</description>
 
     <rule ref="../MediactCommon"/>
-    <rule ref="../MediactMagento1"/>
     <rule ref="../MediactPhpUnit"/>
 </ruleset>
