@@ -1,6 +1,8 @@
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mediact/coding-standard/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mediact/coding-standard/?branch=master)
+
 # MediaCT Coding Standard
 
-This is the MediaCT coding standard.
+This is the MediaCT coding standard, a set of tools for standardizing PHP development code style.
 
 ## Installation
 
