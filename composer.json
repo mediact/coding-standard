@@ -2,7 +2,6 @@
   "name": "mediact/coding-standard",
   "description": "MediaCT PHP Coding Standard",
   "type": "phpcs-sniffs",
-  "homepage": "https://bitbucket.org/mediactbv/coding-standard",
   "license": "MIT",
   "authors": [
     {
