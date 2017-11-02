@@ -3,9 +3,9 @@
  * Copyright MediaCT. All rights reserved.
  * https://www.mediact.nl
  */
-namespace MediactCommon;
+namespace Mediact\CodingStandard;
 
-use PHP_CodeSniffer;
+use PHP_CodeSniffer\Config;
 
 trait PhpVersionTrait
 {
@@ -16,7 +16,7 @@ trait PhpVersionTrait
      */
     protected function getPhpVersion()
     {
-        return PHP_CodeSniffer::getConfigData('php_version')
+        return Config::getConfigData('php_version')
             ?: PHP_VERSION_ID;
     }
 }
