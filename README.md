@@ -2,7 +2,7 @@
 
 # MediaCT Coding Standard
 
-This is the MediaCT coding standard, a set of tools for standardizing PHP development code style.
+This is the MediaCT coding standard. It contains rule sets for PHPCS and PHPMD.
 
 ## Installation
 
@@ -19,11 +19,11 @@ First configure PHPStorm to use the right phpcs command.
 
 Go to __Settings > Languages & Frameworks > PHP > Code Sniffer__. Choose
 "Local" for the path and fill in the full path to 
-`~/.composer/vendor/bin/phpcs`
+`~/.config/composer/vendor/bin/phpcs`
 
 Then go to __Settings > Editor > Inspections__ and search for PHP Code Sniffer
 Validation. Select Custom and the add the path to 
-`~/.composer/vendor/mediact/coding-standard/src/MediaCT`
+`~/.config/composer/vendor/mediact/coding-standard/src/MediaCT`
 
 ## Using the coding standard in a project
 
@@ -31,7 +31,6 @@ To use the standard in a project the standard needs to be required in composer.
 
 ```shell
 $ cd <project_directory>
-$ composer config repositories.mediact composer https://composer.mediact.nl
 $ composer require mediact/coding-standard --dev
 ```
 
@@ -64,6 +63,6 @@ not block a pull request.
 To configure phpcs to show also these messages execute the following command.
 
 ```shell
-$ ~/.composer/vendor/bin/phpcs \
+$ ~/.config/composer/vendor/bin/phpcs \
   --config-set severity 1
 ```

@@ -4,13 +4,14 @@
  * https://www.mediact.nl
  */
 
-namespace MediactCommon\Sniffs\NamingConventions;
+namespace Mediact\CodingStandard\MediactCommon\Sniffs\NamingConventions;
 
-use PHP_CodeSniffer_File;
-use PHP_CodeSniffer_Sniff;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
 
-class ValidVariableNameSniff implements PHP_CodeSniffer_Sniff
+class ValidVariableNameSniff implements Sniff
 {
+    /** @var array  */
     public $allowedNames = [
         '_GET',
         '_POST',
@@ -34,12 +35,12 @@ class ValidVariableNameSniff implements PHP_CodeSniffer_Sniff
     /**
      * Check variable names to make sure no underscores are used.
      *
-     * @param PHP_CodeSniffer_File $phpcsFile
-     * @param int                  $stackPtr
+     * @param File $phpcsFile
+     * @param int  $stackPtr
      *
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, $stackPtr)
     {
         $tokens  = $phpcsFile->getTokens();
         $varName = ltrim($tokens[$stackPtr]['content'], '$');

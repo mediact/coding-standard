@@ -3,22 +3,22 @@
  * Copyright MediaCT. All rights reserved.
  * https://www.mediact.nl
  */
-namespace MediactCommon;
+namespace Mediact\CodingStandard;
 
-use PHP_CodeSniffer;
-use PHP_CodeSniffer_File;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Util\Common;
 
 trait TypeHintsTrait
 {
     /**
      * Gets the type from a tag.
      *
-     * @param PHP_CodeSniffer_File $file
-     * @param int                  $tagIndex
+     * @param File $file
+     * @param int  $tagIndex
      *
      * @return string
      */
-    protected function getTypeFromTag(PHP_CodeSniffer_File $file, $tagIndex)
+    protected function getTypeFromTag(File $file, $tagIndex)
     {
         $content = $file->getTokens()[($tagIndex + 2)]['content'];
         $parts   = explode(' ', $content, 2);
@@ -54,15 +54,19 @@ trait TypeHintsTrait
                     if (isset($mapping[$typeName])) {
                         return $mapping[$typeName];
                     }
+
                     if ($this->isTypeArray($typeName)) {
                         return 'array';
                     }
+
                     if ($this->isTypeCallable($typeName)) {
                         return 'callable';
                     }
+
                     if ($this->isTypeObject($typeName)) {
                         return $typeName;
                     }
+
                     return false;
                 },
                 $typeNames
@@ -99,6 +103,6 @@ trait TypeHintsTrait
      */
     protected function isTypeObject($typeName)
     {
-        return in_array($typeName, PHP_CodeSniffer::$allowedTypes) === false;
+        return in_array($typeName, Common::$allowedTypes) === false;
     }
 }
