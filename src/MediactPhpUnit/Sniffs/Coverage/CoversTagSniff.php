@@ -3,14 +3,14 @@
  * Copyright MediaCT. All rights reserved.
  * https://www.mediact.nl
  */
-namespace MediactPhpUnit\Sniffs\Coverage;
+namespace Mediact\CodingStandard\MediactPhpUnit\Sniffs\Coverage;
 
-use MediactCommon\FunctionTrait;
-use MediactCommon\PhpDocCommentTrait;
-use PHP_CodeSniffer_File;
-use PHP_CodeSniffer_Sniff;
+use Mediact\CodingStandard\FunctionTrait;
+use Mediact\CodingStandard\PhpDocCommentTrait;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
 
-class CoversTagSniff implements PHP_CodeSniffer_Sniff
+class CoversTagSniff implements Sniff
 {
     use FunctionTrait;
     use PhpDocCommentTrait;
@@ -38,12 +38,12 @@ class CoversTagSniff implements PHP_CodeSniffer_Sniff
      * Called when one of the token types that this sniff is listening for
      * is found.
      *
-     * @param PHP_CodeSniffer_File $file
-     * @param int                  $stackPtr
+     * @param File $file
+     * @param int  $stackPtr
      *
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $file, $stackPtr)
+    public function process(File $file, $stackPtr)
     {
         if (!$this->matchesPatterns($this->getFunctionName($file, $stackPtr))) {
             return;
@@ -64,13 +64,13 @@ class CoversTagSniff implements PHP_CodeSniffer_Sniff
     }
 
     /**
-     * @param PHP_CodeSniffer_File $file
-     * @param                      $commentStart
-     * @param array                $tags
+     * @param File  $file
+     * @param int   $commentStart
+     * @param array $tags
      *
      * @return void
      */
-    protected function validateCoversTagExists(PHP_CodeSniffer_File $file, $commentStart, array $tags)
+    protected function validateCoversTagExists(File $file, $commentStart, array $tags)
     {
         if (empty($tags)) {
             $file->addError(
@@ -82,12 +82,12 @@ class CoversTagSniff implements PHP_CodeSniffer_Sniff
     }
 
     /**
-     * @param PHP_CodeSniffer_File $file
-     * @param array                $tags
+     * @param File  $file
+     * @param array $tags
      *
      * @return void
      */
-    protected function validateCoversTagsNotEmpty(PHP_CodeSniffer_File $file, array $tags)
+    protected function validateCoversTagsNotEmpty(File $file, array $tags)
     {
         foreach ($tags as $index => $value) {
             if (empty($value)) {
@@ -101,12 +101,12 @@ class CoversTagSniff implements PHP_CodeSniffer_Sniff
     }
 
     /**
-     * @param PHP_CodeSniffer_File $file
-     * @param array                $tags
+     * @param File  $file
+     * @param array $tags
      *
      * @return void
      */
-    protected function validateCoversTagsAreRelative(PHP_CodeSniffer_File $file, array $tags)
+    protected function validateCoversTagsAreRelative(File $file, array $tags)
     {
         foreach ($tags as $index => $value) {
             if (!empty($value) && substr($value, 0, 2) !== '::') {
@@ -122,12 +122,12 @@ class CoversTagSniff implements PHP_CodeSniffer_Sniff
     }
 
     /**
-     * @param PHP_CodeSniffer_File $file
-     * @param int                  $commentStart
+     * @param File $file
+     * @param int  $commentStart
      *
      * @return string[]
      */
-    protected function getCoversTags(PHP_CodeSniffer_File $file, $commentStart)
+    protected function getCoversTags(File $file, $commentStart)
     {
         $tags = [];
 
@@ -143,12 +143,12 @@ class CoversTagSniff implements PHP_CodeSniffer_Sniff
     }
 
     /**
-     * @param PHP_CodeSniffer_File $file
-     * @param int                  $commentStart
+     * @param File $file
+     * @param int  $commentStart
      *
      * @return bool
      */
-    protected function hasCoversNothingTag(PHP_CodeSniffer_File $file, $commentStart)
+    protected function hasCoversNothingTag(File $file, $commentStart)
     {
         return count($this->findCommentTagIndexes($file, $commentStart, '@coversNothing'))
             > 0;

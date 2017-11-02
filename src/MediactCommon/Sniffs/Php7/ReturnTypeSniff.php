@@ -3,16 +3,16 @@
  * Copyright MediaCT. All rights reserved.
  * https://www.mediact.nl
  */
-namespace MediactCommon\Sniffs\Php7;
+namespace Mediact\CodingStandard\MediactCommon\Sniffs\Php7;
 
-use MediactCommon\FunctionTrait;
-use MediactCommon\PhpDocCommentTrait;
-use MediactCommon\PhpVersionTrait;
-use MediactCommon\TypeHintsTrait;
-use PHP_CodeSniffer_File;
-use PHP_CodeSniffer_Sniff;
+use Mediact\CodingStandard\FunctionTrait;
+use Mediact\CodingStandard\PhpDocCommentTrait;
+use Mediact\CodingStandard\PhpVersionTrait;
+use Mediact\CodingStandard\TypeHintsTrait;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
 
-class ReturnTypeSniff implements PHP_CodeSniffer_Sniff
+class ReturnTypeSniff implements Sniff
 {
     use PhpDocCommentTrait;
     use PhpVersionTrait;
@@ -33,12 +33,12 @@ class ReturnTypeSniff implements PHP_CodeSniffer_Sniff
      * Called when one of the token types that this sniff is listening for
      * is found.
      *
-     * @param PHP_CodeSniffer_File $file
-     * @param int                  $stackPtr
+     * @param File $file
+     * @param int  $stackPtr
      *
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $file, $stackPtr)
+    public function process(File $file, $stackPtr)
     {
         if ($this->getPhpVersion() < 70000) {
             return;
@@ -60,15 +60,15 @@ class ReturnTypeSniff implements PHP_CodeSniffer_Sniff
     }
 
     /**
-     * @param PHP_CodeSniffer_File $file
-     * @param int                  $functionStart
-     * @param string               $returnType
-     * @param array                $suggestedReturnTypes
+     * @param File   $file
+     * @param int    $functionStart
+     * @param string $returnType
+     * @param array  $suggestedReturnTypes
      *
      * @return void
      */
     protected function validateMultipleReturnTypes(
-        PHP_CodeSniffer_File $file,
+        File $file,
         $functionStart,
         $returnType,
         array $suggestedReturnTypes
@@ -87,15 +87,15 @@ class ReturnTypeSniff implements PHP_CodeSniffer_Sniff
     }
 
     /**
-     * @param PHP_CodeSniffer_File $file
-     * @param int                  $functionStart
-     * @param string               $returnType
-     * @param array                $suggestedReturnTypes
+     * @param File   $file
+     * @param int    $functionStart
+     * @param string $returnType
+     * @param array  $suggestedReturnTypes
      *
      * @return void
      */
     protected function validateReturnTypeNotEmpty(
-        PHP_CodeSniffer_File $file,
+        File $file,
         $functionStart,
         $returnType,
         array $suggestedReturnTypes
@@ -117,15 +117,15 @@ class ReturnTypeSniff implements PHP_CodeSniffer_Sniff
     }
 
     /**
-     * @param PHP_CodeSniffer_File $file
-     * @param int                  $functionStart
-     * @param string               $returnType
-     * @param array                $suggestedReturnTypes
+     * @param File   $file
+     * @param int    $functionStart
+     * @param string $returnType
+     * @param array  $suggestedReturnTypes
      *
      * @return void
      */
     protected function validateReturnTypeValue(
-        PHP_CodeSniffer_File $file,
+        File $file,
         $functionStart,
         $returnType,
         array $suggestedReturnTypes
@@ -147,12 +147,12 @@ class ReturnTypeSniff implements PHP_CodeSniffer_Sniff
     }
 
     /**
-     * @param PHP_CodeSniffer_File $file
-     * @param int                  $commentStart
+     * @param File $file
+     * @param int  $commentStart
      *
      * @return array
      */
-    protected function findSuggestedReturnTypes(PHP_CodeSniffer_File $file, $commentStart)
+    protected function findSuggestedReturnTypes(File $file, $commentStart)
     {
         $returnTag = $this->findSingleCommentTagIndex($file, $commentStart, '@return');
         return $returnTag
@@ -161,14 +161,17 @@ class ReturnTypeSniff implements PHP_CodeSniffer_Sniff
     }
 
     /**
-     * @param PHP_CodeSniffer_File $file
-     * @param string               $functionStart
-     * @param string               $functionBodyStart
+     * @param File   $file
+     * @param string $functionStart
+     * @param string $functionBodyStart
      *
      * @return string
      */
-    protected function findActualReturnType(PHP_CodeSniffer_File $file, $functionStart, $functionBodyStart)
-    {
+    protected function findActualReturnType(
+        File $file,
+        $functionStart,
+        $functionBodyStart
+    ) {
         $returnTypeIndex = $file->findNext(
             T_RETURN_TYPE,
             $functionStart,
@@ -190,14 +193,14 @@ class ReturnTypeSniff implements PHP_CodeSniffer_Sniff
     }
 
     /**
-     * @param PHP_CodeSniffer_File $file
-     * @param int                  $functionStart
-     * @param int                  $functionBodyStart
+     * @param File $file
+     * @param int  $functionStart
+     * @param int  $functionBodyStart
      *
      * @return int|bool
      */
     protected function findFunctionArrayReturnIndex(
-        PHP_CodeSniffer_File $file,
+        File $file,
         $functionStart,
         $functionBodyStart
     ) {

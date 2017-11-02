@@ -7,7 +7,4 @@
 -->
 <ruleset name="Mediact/PhpUnit">
     <description>Coding standard for unit tests.</description>
-
-    <!-- Base rules on MediaCT -->
-    <rule ref="../MediactCommon"/>
 </ruleset>
