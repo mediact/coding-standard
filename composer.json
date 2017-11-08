@@ -17,7 +17,7 @@
     "require-dev": {
         "mediact/testing-suite": "@stable",
         "phpunit/phpunit": "@stable"
-    }
+    },
     "autoload": {
         "psr-4": {
             "Mediact\\CodingStandard\\": "src"
