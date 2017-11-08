@@ -1,19 +1,17 @@
+# Introduction
+
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mediact/coding-standard/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mediact/coding-standard/?branch=master)
+This is the MediaCT coding standard, it contains rule sets for PHPCS and PHPMD.
 
-# MediaCT Coding Standard
+# Installation
 
-This is the MediaCT coding standard. It contains rule sets for PHPCS and PHPMD.
-
-## Installation
-
-Use composer to install the coding standard in your home directory.
+Use composer to install the coding standard in the home directory.
 
 ```shell
-$ composer global config repositories.mediact composer https://composer.mediact.nl
-$ composer global require mediact/coding-standard
+composer global require mediact/coding-standard
 ```
 
-## Configuring PHPStorm to use the coding standard.
+# Configuring PHPStorm to use the coding standard.
 
 First configure PHPStorm to use the right phpcs command.
 
@@ -25,13 +23,13 @@ Then go to __Settings > Editor > Inspections__ and search for PHP Code Sniffer
 Validation. Select Custom and the add the path to 
 `~/.config/composer/vendor/mediact/coding-standard/src/MediaCT`
 
-## Using the coding standard in a project
+# Using the coding standard in a project
 
 To use the standard in a project the standard needs to be required in composer.
 
 ```shell
-$ cd <project_directory>
-$ composer require mediact/coding-standard --dev
+cd <project_directory>
+composer require mediact/coding-standard --dev
 ```
 
 This will add the coding standard to the vendor directory of the project.
@@ -49,11 +47,11 @@ project.
 The standard can be checked from the command line by going to the directory.
 
 ```shell
-$ cd <project_directory>
-$ ./vendor/bin/phpcs ./src
+cd <project_directory>
+./vendor/bin/phpcs ./src
 ```
 
-## Configuring PHP CodeSniffer to also show less severe messages
+# Configuring PHP CodeSniffer to also show less severe messages
 
 By default PHP CodeSniffer shows only messages with a severity higher than
 __5__. The MediaCT coding standard also has some messages with a lower
@@ -63,6 +61,5 @@ not block a pull request.
 To configure phpcs to show also these messages execute the following command.
 
 ```shell
-$ ~/.config/composer/vendor/bin/phpcs \
-  --config-set severity 1
+~/.config/composer/vendor/bin/phpcs --config-set severity 1
 ```

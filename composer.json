@@ -14,9 +14,23 @@
         "squizlabs/php_codesniffer": "^3.0",
         "phpmd/phpmd": "^2.0"
     },
+    "require-dev": {
+        "mediact/testing-suite": "@stable",
+        "phpunit/phpunit": "@stable"
+    },
     "autoload": {
         "psr-4": {
-            "Mediact\\CodingStandard\\": "src/"
+            "Mediact\\CodingStandard\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "files": [
+            "vendor/squizlabs/php_codesniffer/autoload.php"
+        ]
+    },
+    "extra": {
+        "grumphp": {
+            "config-default-path": "vendor/mediact/testing-suite/config/default/grumphp.yml"
         }
     }
 }
