@@ -25,7 +25,9 @@
     },
     "autoload-dev": {
         "files": [
-            "vendor/squizlabs/php_codesniffer/autoload.php"
+            "vendor/squizlabs/php_codesniffer/autoload.php",
+            "vendor/squizlabs/php_codesniffer/src/Util/Tokens.php",
+            "vendor/squizlabs/php_codesniffer/src/Runner.php"
         ]
     },
     "extra": {
