@@ -22,5 +22,15 @@
         "psr-4": {
             "Mediact\\CodingStandard\\": "src"
         }
+    },
+    "autoload-dev": {
+        "files": [
+            "vendor/squizlabs/php_codesniffer/autoload.php"
+        ]
+    },
+    "extra": {
+        "grumphp": {
+            "config-default-path": "vendor/mediact/testing-suite/config/default/grumphp.yml"
+        }
     }
 }
