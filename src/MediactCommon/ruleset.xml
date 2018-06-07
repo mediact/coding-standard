@@ -20,6 +20,8 @@
         <exclude name="Squiz.Arrays.ArrayDeclaration.NoCommaAfterLast"/>
         <exclude name="Squiz.Arrays.ArrayDeclaration.CloseBraceNotAligned"/>
         <exclude name="Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.NoComma"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"/>
     </rule>
 
     <!-- Code analysis -->
@@ -39,6 +41,8 @@
         <exclude name="Generic.Commenting.DocComment.ContentBeforeClose"/>
         <exclude name="Generic.Commenting.DocComment.MissingShort"/>
         <exclude name="Generic.Commenting.DocComment.SpacingBeforeTags"/>
+        <exclude name="Generic.Commenting.DocComment.ParamNotFirst" />
+        <exclude name="Generic.Commenting.DocComment.TagValueIndent" />
     </rule>
     <rule ref="Squiz.Commenting.FunctionComment">
         <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
