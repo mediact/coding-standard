@@ -162,7 +162,6 @@ class ReturnTypeSniff implements Sniff
     /**
      * @param File   $file
      * @param string $functionStart
-     * @param string $functionBodyStart
      *
      * @return string
      */
