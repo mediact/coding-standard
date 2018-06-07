@@ -170,6 +170,6 @@ class ReturnTypeSniff implements Sniff
         $functionStart
     ) {
         $properties = $file->getMethodProperties($functionStart);
-        return $properties['return_type'];
+        return ltrim($properties['return_type'], '?');
     }
 }
