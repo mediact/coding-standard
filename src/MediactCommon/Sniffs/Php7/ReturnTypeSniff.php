@@ -44,14 +44,13 @@ class ReturnTypeSniff implements Sniff
             return;
         }
 
-        $functionStart     = $stackPtr;
-        $functionBodyStart = $this->findFunctionBodyStartIndex($file, $functionStart);
-        $commentEnd        = $this->findCommentEndIndex($file, $stackPtr);
-        $commentStart      = $this->findCommentStartIndex($file, $commentEnd);
+        $functionStart = $stackPtr;
+        $commentEnd    = $this->findCommentEndIndex($file, $stackPtr);
+        $commentStart  = $this->findCommentStartIndex($file, $commentEnd);
 
-        if ($commentStart && $functionBodyStart) {
+        if (is_int($commentStart) && is_int($commentEnd)) {
             $suggestedReturnTypes = $this->findSuggestedReturnTypes($file, $commentStart);
-            $returnType           = $this->findActualReturnType($file, $functionStart, $functionBodyStart);
+            $returnType           = $this->findActualReturnType($file, $functionStart);
 
             $this->validateMultipleReturnTypes($file, $functionStart, $returnType, $suggestedReturnTypes);
             $this->validateReturnTypeNotEmpty($file, $functionStart, $returnType, $suggestedReturnTypes);
@@ -163,57 +162,14 @@ class ReturnTypeSniff implements Sniff
     /**
      * @param File   $file
      * @param string $functionStart
-     * @param string $functionBodyStart
      *
      * @return string
      */
     protected function findActualReturnType(
         File $file,
-        $functionStart,
-        $functionBodyStart
+        $functionStart
     ) {
-        $returnTypeIndex = $file->findNext(
-            T_RETURN_TYPE,
-            $functionStart,
-            $functionBodyStart
-        );
-
-        if (!$returnTypeIndex) {
-            // Sometimes the return tag has been parsed wrong by PHPCS
-            $returnTypeIndex = $this->findFunctionArrayReturnIndex(
-                $file,
-                $functionStart,
-                $functionBodyStart
-            );
-        }
-
-        return $returnTypeIndex
-            ? $file->getTokens()[$returnTypeIndex]['content']
-            : '';
-    }
-
-    /**
-     * @param File $file
-     * @param int  $functionStart
-     * @param int  $functionBodyStart
-     *
-     * @return int|bool
-     */
-    protected function findFunctionArrayReturnIndex(
-        File $file,
-        $functionStart,
-        $functionBodyStart
-    ) {
-        $closingIndex = $file->findNext(
-            T_CLOSE_PARENTHESIS,
-            $functionStart,
-            $functionBodyStart
-        );
-
-        return $file->findNext(
-            [T_ARRAY_HINT],
-            $closingIndex,
-            $functionBodyStart
-        );
+        $properties = $file->getMethodProperties($functionStart);
+        return $properties['return_type'];
     }
 }
