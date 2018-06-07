@@ -48,7 +48,7 @@ class ReturnTypeSniff implements Sniff
         $commentEnd    = $this->findCommentEndIndex($file, $stackPtr);
         $commentStart  = $this->findCommentStartIndex($file, $commentEnd);
 
-        if ($commentStart) {
+        if (is_int($commentStart) && is_int($commentEnd)) {
             $suggestedReturnTypes = $this->findSuggestedReturnTypes($file, $commentStart);
             $returnType           = $this->findActualReturnType($file, $functionStart);
 
