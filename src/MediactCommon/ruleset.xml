@@ -8,8 +8,8 @@
 <ruleset name="Mediact/Common">
     <description>MediaCT its extension to PSR2.</description>
 
-    <!-- Base rules on PSR2 -->
-    <rule ref="PSR2">
+    <!-- Base rules on PSR12 -->
+    <rule ref="PSR12">
         <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.UseOneParamPerLine" />
     </rule>
 
