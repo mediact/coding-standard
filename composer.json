@@ -32,5 +32,14 @@
         "grumphp": {
             "config-default-path": "vendor/mediact/testing-suite/config/default/grumphp.yml"
         }
+    },
+    "archive": {
+        "exclude": [
+            "/.gitignore",
+            "/phpunit.xml",
+            "/phpmd.xml",
+            "/phpstan.neon",
+            "/phpcs.xml"
+        ]
     }
 }
