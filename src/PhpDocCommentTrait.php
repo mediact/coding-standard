@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Copyright MediaCT. All rights reserved.
  * https://www.mediact.nl
  */
+
 namespace Mediact\CodingStandard;
 
 use PHP_CodeSniffer\Files\File;
@@ -22,7 +24,8 @@ trait PhpDocCommentTrait
     {
         $searchTypes   = array_merge(Tokens::$methodPrefixes, [T_WHITESPACE]);
         $previousToken = $file->findPrevious($searchTypes, $elementIndex - 1, null, true);
-        if ($previousToken
+        if (
+            $previousToken
             && $file->getTokens()[$previousToken]['code'] == T_DOC_COMMENT_CLOSE_TAG
         ) {
             return $previousToken;

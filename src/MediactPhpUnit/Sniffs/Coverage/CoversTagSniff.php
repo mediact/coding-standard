@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Copyright MediaCT. All rights reserved.
  * https://www.mediact.nl
  */
+
 namespace Mediact\CodingStandard\MediactPhpUnit\Sniffs\Coverage;
 
 use Mediact\CodingStandard\FunctionTrait;
@@ -51,7 +53,8 @@ class CoversTagSniff implements Sniff
 
         $commentEnd   = $this->findCommentEndIndex($file, $stackPtr);
         $commentStart = $this->findCommentStartIndex($file, $commentEnd);
-        if ($commentStart
+        if (
+            $commentStart
             && $commentEnd
             && !$this->hasCoversNothingTag($file, $commentStart)
         ) {

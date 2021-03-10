@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Copyright MediaCT. All rights reserved.
  * https://www.mediact.nl
  */
+
 namespace Mediact\CodingStandard\MediactCommon\Sniffs\Php7;
 
 use Mediact\CodingStandard\FunctionTrait;
@@ -72,7 +74,8 @@ class ReturnTypeSniff implements Sniff
         $returnType,
         array $suggestedReturnTypes
     ) {
-        if (empty($returnType)
+        if (
+            empty($returnType)
             && count($suggestedReturnTypes) > 1
         ) {
             $file->addWarning(
@@ -100,7 +103,8 @@ class ReturnTypeSniff implements Sniff
         array $suggestedReturnTypes
     ) {
         $filteredReturnTypes = array_filter($suggestedReturnTypes);
-        if (empty($returnType)
+        if (
+            empty($returnType)
             && count($suggestedReturnTypes) == 1
             && count($filteredReturnTypes) == 1
         ) {
@@ -130,7 +134,8 @@ class ReturnTypeSniff implements Sniff
         array $suggestedReturnTypes
     ) {
         $filteredReturnTypes = array_filter($suggestedReturnTypes);
-        if (!empty($returnType)
+        if (
+            !empty($returnType)
             && count($filteredReturnTypes)
             && !in_array($returnType, $filteredReturnTypes)
         ) {
