@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright MediaCT. All rights reserved.
  * https://www.mediact.nl
@@ -45,7 +46,8 @@ class ValidVariableNameSniff implements Sniff
         $tokens  = $phpcsFile->getTokens();
         $varName = ltrim($tokens[$stackPtr]['content'], '$');
 
-        if (!in_array($varName, $this->allowedNames)
+        if (
+            !in_array($varName, $this->allowedNames)
             && preg_match('/^_/', $varName)
         ) {
             $phpcsFile->addWarning(
