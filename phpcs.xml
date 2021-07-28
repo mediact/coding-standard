@@ -7,6 +7,10 @@
     <description>PHPCS</description>
     <rule ref="./src/MediaCT">
         <exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing" />
+        <exclude name="Generic.Commenting.DocComment.MissingShort"/>
+        <exclude name="PEAR.Commenting.ClassComment.Missing"/>
+        <exclude name="PEAR.Commenting.FileComment.Missing"/>
+        <exclude name="PEAR.Commenting.FunctionComment.Missing"/>
         <exclude name="MediactCommon.Php7.ReturnType" />
     </rule>
 </ruleset>
