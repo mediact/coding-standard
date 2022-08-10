@@ -3,6 +3,7 @@
     "description": "MediaCT PHP Coding Standard",
     "type": "phpcs-sniffs",
     "license": "MIT",
+    "abandoned": "youwe/coding-standard",
     "authors": [
         {
             "name": "MediaCT",

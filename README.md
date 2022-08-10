@@ -1,4 +1,4 @@
-# Introduction
+# [ABANDONED] Introduction
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mediact/coding-standard/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mediact/coding-standard/?branch=master)
 This is the MediaCT coding standard, it contains rule sets for PHPCS and PHPMD.
